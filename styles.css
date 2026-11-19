@@ -57,3 +57,8 @@ footer {
     color: #5a6785;
     margin-top: 40px;
 }
+
+/* NEW STYLE 1: rounded corners on the menu bar */
+nav {
+    border-radius: 12px;
+}
