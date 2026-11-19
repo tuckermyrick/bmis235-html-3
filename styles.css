@@ -62,3 +62,8 @@ footer {
 nav {
     border-radius: 12px;
 }
+
+/* NEW STYLE 2: a menu button fades a little when the mouse is over it */
+nav a:hover img {
+    opacity: 0.7;
+}
