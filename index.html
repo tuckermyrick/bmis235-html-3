@@ -36,7 +36,117 @@
      This box is empty on purpose. In Part 7 you paste an interactive
      graphic BETWEEN the opening <div> and the closing </div> below.
      ===================================================================== -->
-<div class="showcase"></div>
+<div class="showcase">
+
+<!-- HTML: three cards, one per page. Each card is a button with a
+     front side (the name) and a back side (a fact). -->
+<div class="hint">Click a card to flip it</div>
+<div class="cards">
+    <button class="card" type="button">
+        <span class="inner">
+            <span class="front">Steel</span>
+            <span class="back">Steel is the most recycled material in the world.</span>
+        </span>
+    </button>
+    <button class="card" type="button">
+        <span class="inner">
+            <span class="front">Wind</span>
+            <span class="back">One spin of a big offshore turbine can power a home for a day.</span>
+        </span>
+    </button>
+    <button class="card" type="button">
+        <span class="inner">
+            <span class="front">Solar</span>
+            <span class="back">The sun sends Earth more energy in an hour than the world uses in a year.</span>
+        </span>
+    </button>
+</div>
+
+<!-- CSS: lays the cards out in a row, colors the two sides, and turns a
+     card over when it has the "flipped" class. Every rule starts with
+     .showcase so nothing outside this box changes. -->
+<style>
+.showcase {
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+.showcase .hint {
+    color: #5a6785;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.showcase .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+.showcase .card {
+    flex: 1 1 140px;
+    max-width: 190px;
+    height: 150px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+    perspective: 800px;
+}
+.showcase .inner {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.showcase .card.flipped .inner {
+    transform: rotateY(180deg);
+}
+.showcase .front,
+.showcase .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 3px solid #001030;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.showcase .front {
+    background-color: #002060;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+.showcase .back {
+    background-color: #f2b705;
+    color: #001030;
+    font-size: 15px;
+    line-height: 1.35;
+    transform: rotateY(180deg);
+}
+</style>
+
+<!-- JavaScript: when a card is clicked, add or remove the "flipped"
+     class on that card. The CSS above does the actual turning. -->
+<script>
+document.querySelectorAll(".showcase .card").forEach(function (card) {
+    card.addEventListener("click", function () {
+        card.classList.toggle("flipped");
+    });
+});
+</script>
+
+</div>
 
 <!-- Footer: fill in your name -->
 <footer>Built by Tucker Myrick &middot; BMIS 235</footer>
