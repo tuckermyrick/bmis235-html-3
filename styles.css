@@ -67,3 +67,9 @@ nav {
 nav a:hover img {
     opacity: 0.7;
 }
+
+/* NEW STYLE 3: links in the text use the brand navy instead of default blue */
+p a {
+    color: #002060;
+    font-weight: bold;
+}
